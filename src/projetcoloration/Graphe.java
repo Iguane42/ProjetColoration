@@ -36,4 +36,11 @@ public class Graphe {
         sommet1.getVoisins().add(sommet2);
         sommet2.getVoisins().add(sommet1);
     }
+
+    /**
+     * @param sommets the sommets to set
+     */
+    public void setSommets(ArrayList<Sommet> sommets) {
+        this.sommets = sommets;
+    }
 }
