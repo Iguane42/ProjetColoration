@@ -67,7 +67,7 @@ public class Graphe {
     public void welshPowell()
     {
         ArrayList<Sommet> buffer = getListeOrdreDecroissant();
-        int couleur = 0;
+        int couleur = 1;
         int nbcolore = 0;
         while(nbcolore < buffer.size()){
             for(Sommet sommet : buffer) {
@@ -78,6 +78,7 @@ public class Graphe {
             }
             couleur ++;
         }
+        System.out.println(couleur);
 
     }
     
@@ -100,5 +101,9 @@ public class Graphe {
         }
         System.out.println(nbCouleurMax);
 
+    }
+    
+    public void dSatur(){
+        
     }
 }
