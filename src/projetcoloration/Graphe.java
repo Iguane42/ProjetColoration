@@ -34,7 +34,6 @@ public class Graphe {
         Sommet sommet1 = sommets.get(indice1);
         Sommet sommet2 = sommets.get(indice2);
         sommet1.getVoisins().add(sommet2);
-        sommet2.getVoisins().add(sommet1);
     }
 
     /**
