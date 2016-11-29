@@ -18,6 +18,7 @@ public class Sommet {
     public Sommet()
     {
         this.voisins = new ArrayList<>();
+        this.couleur = -1;
     }
 
     /**

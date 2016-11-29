@@ -21,7 +21,21 @@ public class ProjetColoration {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Graphe graphe5 = importFichier("../queen5_5.txt");
+        int taillecote = 5;
+        Graphe graphe5 = importFichier("../queen"+taillecote+"_"+taillecote+".txt");
+        graphe5.welshPowell();
+        int i = 0;
+        String buffer = "";
+        for (Sommet sommet : graphe5.getSommets()) {
+            i++;
+            buffer += "|"+sommet.getCouleur()+"|";
+            if (i == taillecote) {
+                System.out.println(buffer);
+                buffer = "";
+                i = 0;
+            }
+            
+        }
     }
     
     // Fonction qui permet d'importer les fichiers textes et de les insérer dans les graphes
