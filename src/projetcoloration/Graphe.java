@@ -78,5 +78,27 @@ public class Graphe {
             }
             couleur ++;
         }
+
+    }
+    
+    //public void greedy(ArrayList<Sommet> ALS){
+    public void greedy(){
+        //ArrayList<Sommet> ALS = getListeOrdreDecroissant();
+        ArrayList<Sommet> ALS = sommets;
+        int nbCouleur;
+        int nbCouleurMax = 1;
+        
+        for(Sommet s : ALS){
+            nbCouleur = 1;
+            while(!s.verifierCouleurVoisins(nbCouleur)){
+                nbCouleur++;
+                if(nbCouleur > nbCouleurMax){
+                    nbCouleurMax = nbCouleur;
+                }
+            }
+            s.setCouleur(nbCouleur);
+        }
+        System.out.println(nbCouleurMax);
+
     }
 }
