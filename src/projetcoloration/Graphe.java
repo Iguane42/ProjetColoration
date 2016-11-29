@@ -42,4 +42,31 @@ public class Graphe {
     public void setSommets(ArrayList<Sommet> sommets) {
         this.sommets = sommets;
     }
+    
+    private ArrayList<Sommet> getListeOrdreDecroissant(){
+        int max = 0;
+        for (Sommet sommet : sommets) {
+            int nbvoisins = sommet.getVoisins().size();
+            if (nbvoisins > max) {
+                max = nbvoisins;
+            }
+        }
+        ArrayList<Sommet> buffer = new ArrayList<>();
+        for (int i = max; i >= 0; i++) {
+            for (Sommet sommet : sommets) {
+                int nbvoisins = sommet.getVoisins().size();
+                if (nbvoisins == i) {
+                    buffer.add(sommet);
+                }
+            }
+        }
+        
+        return buffer;
+    }
+    
+    public void welshPowell()
+    {
+        ArrayList<Sommet> buffer = 
+        while()
+    }
 }
