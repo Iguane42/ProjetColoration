@@ -5,10 +5,26 @@
  */
 package projetcoloration;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Epulapp
  */
 public class Sommet {
+    private ArrayList<Sommet> voisins;
+    
+    public Sommet()
+    {
+        this.voisins = new ArrayList<>();
+    }
+
+    /**
+     * @return the voisins
+     */
+    public ArrayList<Sommet> getVoisins() {
+        return voisins;
+    }
+    
     
 }
