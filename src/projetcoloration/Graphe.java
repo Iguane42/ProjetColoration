@@ -110,7 +110,10 @@ public class Graphe {
     }
     
     public void dSatur(){
-        ArrayList<Sommet> buffer = getListeOrdreDecroissant();
+        
+        long debut = System.currentTimeMillis();
+        //ArrayList<Sommet> buffer = getListeOrdreDecroissant();
+        ArrayList<Sommet> buffer = sommets;
         int couleurmax = 0;
         int nbcolore = 0;
         while(nbcolore < buffer.size()){
@@ -125,7 +128,9 @@ public class Graphe {
                 couleurmax = couleur;
             }
         }
-        System.out.println(couleurmax);
+        
+        long fin = System.currentTimeMillis()-debut;
+        System.out.println("Nombre de couleur : "+couleurmax+". Exécuté en "+fin+" ms");
     }
     
     public Sommet getDsatMax(ArrayList<Sommet> buffer)
