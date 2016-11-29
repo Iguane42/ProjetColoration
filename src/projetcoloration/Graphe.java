@@ -104,6 +104,38 @@ public class Graphe {
     }
     
     public void dSatur(){
+        ArrayList<Sommet> buffer = getListeOrdreDecroissant();
+        int couleurmax = 0;
+        int nbcolore = 0;
+        while(nbcolore < buffer.size()){
+            Sommet sommet = getDsatMax(buffer);
+            int couleur = 1;
+            while (sommet.verifierCouleurVoisins(couleur) == false) {
+                couleur ++;
+            }
+            sommet.setCouleur(couleur);
+            nbcolore ++;
+            if (couleur > couleurmax){
+                couleurmax = couleur;
+            }
+        }
+        System.out.println(couleurmax);
+    }
+    
+    public Sommet getDsatMax(ArrayList<Sommet> buffer)
+    {
+        Sommet sommetelu = new Sommet();
+        int dsatmax = -1;
+        for(Sommet sommet : buffer) {
+            if (sommet.getCouleur() == -1){
+                int dsat = sommet.getDsat();
+                if (dsat > dsatmax) {
+                    sommetelu = sommet;
+                    dsatmax = dsat;
+                }
+            }
+        }
         
+        return sommetelu;
     }
 }

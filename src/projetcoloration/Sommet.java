@@ -6,6 +6,7 @@
 package projetcoloration;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -49,6 +50,26 @@ public class Sommet {
             }
         }
         return true;
+    }
+    
+    public int getDsat(){
+        ArrayList<Integer> couleurs = new ArrayList<>();
+        for (Sommet voisin : voisins) {
+            int color = voisin.getCouleur();
+            if (color != -1) {
+                boolean estpresent = false;
+                for (int couleur2 : couleurs){
+                    if (color == couleur2) {
+                        estpresent = true;
+                        break;
+                    }
+                }
+                if (estpresent == false) {
+                    couleurs.add(color);
+                }
+            }
+        }
+        return couleurs.size();
     }
     
 }

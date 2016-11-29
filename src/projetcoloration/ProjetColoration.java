@@ -21,9 +21,9 @@ public class ProjetColoration {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        int taillecote = 5;
+        int taillecote = 15;
         Graphe graphe5 = importFichier("../queen"+taillecote+"_"+taillecote+".txt");
-        graphe5.welshPowell();
+        graphe5.dSatur();
         int i = 0;
         String buffer = "";
         for (Sommet sommet : graphe5.getSommets()) {
