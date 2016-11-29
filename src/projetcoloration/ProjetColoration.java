@@ -21,9 +21,9 @@ public class ProjetColoration {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        int taillecote = 5;
+        int taillecote = 15;
         Graphe graphe5 = importFichier("../queen"+taillecote+"_"+taillecote+".txt");
-        graphe5.welshPowell();
+        graphe5.greedy();
         int i = 0;
         String buffer = "";
         for (Sommet sommet : graphe5.getSommets()) {
@@ -62,27 +62,27 @@ public class ProjetColoration {
             while(line != null){
                 if(line.indexOf("Nom: ") != -1){
                     nomFichier = line.substring(line.indexOf(" ")+1);
-                    System.out.println(nomFichier);
+                    //System.out.println(nomFichier);
                     line = br.readLine();
                 } else if(line.indexOf("Oriente(non/oui): ") != -1){
                     oriente = line.substring(line.indexOf(" ")+1);
-                    System.out.println(oriente);
+                    //System.out.println(oriente);
                     line = br.readLine();
                 } else if(line.indexOf("NbSommets: ") != -1){
                     nbSommets = Integer.parseInt(line.substring(line.indexOf(" ")+1));
-                    System.out.println(nbSommets);
+                    //System.out.println(nbSommets);
                     line = br.readLine();
                 } else if(line.indexOf("NbValSommet: ") != -1){
                     nbValSommet = Integer.parseInt(line.substring(line.indexOf(" ")+1));
-                    System.out.println(nbValSommet);
+                    //System.out.println(nbValSommet);
                     line = br.readLine();
                 } else if(line.indexOf("NbArcs: ") != -1){
                     nbArcs = Integer.parseInt(line.substring(line.indexOf(" ")+1));
-                    System.out.println(nbArcs);
+                    //System.out.println(nbArcs);
                     line = br.readLine();
                 } else if(line.indexOf("NbValArc: ") != -1){
                     nbValArc = Integer.parseInt(line.substring(line.indexOf(" ")+1));
-                    System.out.println(nbValArc);
+                    //System.out.println(nbValArc);
                     line = br.readLine();
                 } else if(line.indexOf("--- Liste des sommets") != -1 || listeSommet){
                     if(listeSommet == false){
@@ -96,7 +96,7 @@ public class ProjetColoration {
                         } else{
                             int index = Integer.parseInt(line.substring(0, line.indexOf(" ")));
                             ALS.add(index, new Sommet());
-                            System.out.println(line);
+                            //System.out.println(line);
                         }
                     }
                     line = br.readLine();
@@ -108,7 +108,7 @@ public class ProjetColoration {
                         int sommet1 = Integer.parseInt(line.substring(0, line.indexOf(" ")));
                         int sommet2 = Integer.parseInt(line.substring(line.indexOf(" ")+1));
                         graphe.relierSommets(sommet1, sommet2);
-                        System.out.println("Sommet 1 : "+sommet1+" / Sommet 2 : "+sommet2);
+                        //System.out.println("Sommet 1 : "+sommet1+" / Sommet 2 : "+sommet2);
                     }
                     line = br.readLine();
                 } else{

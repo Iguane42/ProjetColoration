@@ -66,7 +66,9 @@ public class Graphe {
     
     public void welshPowell()
     {
-        ArrayList<Sommet> buffer = getListeOrdreDecroissant();
+        long debut = System.currentTimeMillis();
+        //ArrayList<Sommet> buffer = getListeOrdreDecroissant();
+        ArrayList<Sommet> buffer = sommets;
         int couleur = 1;
         int nbcolore = 0;
         while(nbcolore < buffer.size()){
@@ -78,12 +80,14 @@ public class Graphe {
             }
             couleur ++;
         }
-        System.out.println(couleur);
+        long fin = System.currentTimeMillis()-debut;
+        System.out.println("Nombre de couleur : "+couleur+". Exécuté en "+fin+" ms");
 
     }
     
     //public void greedy(ArrayList<Sommet> ALS){
     public void greedy(){
+        long debut = System.currentTimeMillis();
         //ArrayList<Sommet> ALS = getListeOrdreDecroissant();
         ArrayList<Sommet> ALS = sommets;
         int nbCouleur;
@@ -99,7 +103,9 @@ public class Graphe {
             }
             s.setCouleur(nbCouleur);
         }
-        System.out.println(nbCouleurMax);
+        
+        long fin = System.currentTimeMillis()-debut;
+        System.out.println("Nombre de couleur : "+nbCouleurMax+". Exécuté en "+fin+" ms");
 
     }
     
