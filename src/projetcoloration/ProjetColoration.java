@@ -77,7 +77,7 @@ public class ProjetColoration {
                             listeSommet = false;
                             listeArete = true;
                             
-                            //graphe = new Graphe(ALS);
+                            graphe.setSommets(ALS);
                         } else{
                             int index = Integer.parseInt(line.substring(0, line.indexOf(" ")));
                             ALS.add(index, new Sommet());
@@ -91,7 +91,8 @@ public class ProjetColoration {
                         listeArete = true;
                     } else{
                         int sommet1 = Integer.parseInt(line.substring(0, line.indexOf(" ")));
-                        int sommet2 = Integer.parseInt(line.substring(line.indexOf(" ")));
+                        int sommet2 = Integer.parseInt(line.substring(line.indexOf(" ")+1));
+                        graphe.relierSommets(sommet1, sommet2);
                         System.out.println("Sommet 1 : "+sommet1+" / Sommet 2 : "+sommet2);
                     }
                     line = br.readLine();
