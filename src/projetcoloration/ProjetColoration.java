@@ -21,17 +21,18 @@ public class ProjetColoration {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        importFichier("../queen5_5.txt");
+        Graphe graphe5 = importFichier("../queen5_5.txt");
     }
     
     // Fonction qui permet d'importer les fichiers textes et de les insérer dans les graphes
-    //public static Graphe importFichier(String file) throws FileNotFoundException, IOException{
-    public static void importFichier(String file) throws FileNotFoundException, IOException{
+    public static Graphe importFichier(String file) throws FileNotFoundException, IOException{
         
         try (BufferedReader br = new BufferedReader(new FileReader(file))){
             String line = br.readLine();
             
             ArrayList<Sommet> ALS = new ArrayList<>();
+            
+            Graphe graphe = new Graphe();
             
             String nomFichier;
             String oriente;
@@ -75,6 +76,8 @@ public class ProjetColoration {
                         if(line.indexOf("--- Liste des aretes") != -1){
                             listeSommet = false;
                             listeArete = true;
+                            
+                            //graphe = new Graphe(ALS);
                         } else{
                             int index = Integer.parseInt(line.substring(0, line.indexOf(" ")));
                             ALS.add(index, new Sommet());
@@ -87,7 +90,9 @@ public class ProjetColoration {
                         listeSommet = false;
                         listeArete = true;
                     } else{
-                        System.out.println(line);
+                        int sommet1 = Integer.parseInt(line.substring(0, line.indexOf(" ")));
+                        int sommet2 = Integer.parseInt(line.substring(line.indexOf(" ")));
+                        System.out.println("Sommet 1 : "+sommet1+" / Sommet 2 : "+sommet2);
                     }
                     line = br.readLine();
                 } else{
@@ -98,6 +103,8 @@ public class ProjetColoration {
                 }
                 
             }
+            
+            return graphe;
         }
     }
     
