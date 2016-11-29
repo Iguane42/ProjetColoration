@@ -41,4 +41,13 @@ public class Sommet {
         this.couleur = couleur;
     }
     
+    public boolean verifierCouleurVoisins(int couleur) {
+        for (Sommet voisin : voisins) {
+            if (voisin.getCouleur() == couleur) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
 }
