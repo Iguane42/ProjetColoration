@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Sommet {
     private ArrayList<Sommet> voisins;
+    private int couleur;
     
     public Sommet()
     {
@@ -25,6 +26,19 @@ public class Sommet {
     public ArrayList<Sommet> getVoisins() {
         return voisins;
     }
-    
+
+    /**
+     * @return the couleur
+     */
+    public int getCouleur() {
+        return couleur;
+    }
+
+    /**
+     * @param couleur the couleur to set
+     */
+    public void setCouleur(int couleur) {
+        this.couleur = couleur;
+    }
     
 }
