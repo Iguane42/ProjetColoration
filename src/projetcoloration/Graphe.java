@@ -52,7 +52,7 @@ public class Graphe {
             }
         }
         ArrayList<Sommet> buffer = new ArrayList<>();
-        for (int i = max; i >= 0; i++) {
+        for (int i = max; i >= 0; i--) {
             for (Sommet sommet : sommets) {
                 int nbvoisins = sommet.getVoisins().size();
                 if (nbvoisins == i) {
@@ -64,9 +64,29 @@ public class Graphe {
         return buffer;
     }
     
-    public void welshPowell()
+    /*public void welshPowell()
     {
         ArrayList<Sommet> buffer = 
         while()
+    }*/
+    
+    //public void greedy(ArrayList<Sommet> ALS){
+    public void greedy(){
+        //ArrayList<Sommet> ALS = getListeOrdreDecroissant();
+        ArrayList<Sommet> ALS = sommets;
+        int nbCouleur;
+        int nbCouleurMax = 1;
+        
+        for(Sommet s : ALS){
+            nbCouleur = 1;
+            while(!s.verifierCouleurVoisins(nbCouleur)){
+                nbCouleur++;
+                if(nbCouleur > nbCouleurMax){
+                    nbCouleurMax = nbCouleur;
+                }
+            }
+            s.setCouleur(nbCouleur);
+        }
+        System.out.println(nbCouleurMax);
     }
 }

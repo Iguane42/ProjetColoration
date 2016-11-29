@@ -21,7 +21,8 @@ public class ProjetColoration {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        Graphe graphe5 = importFichier("../queen5_5.txt");
+        Graphe graphe5 = importFichier("../queen13_13.txt");
+        graphe5.greedy();
     }
     
     // Fonction qui permet d'importer les fichiers textes et de les insérer dans les graphes
